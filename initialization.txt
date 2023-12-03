@@ -1,0 +1,107 @@
+CREATE (d1:Department   
+    {
+      "address": "Wielkopolska 12",
+      "city": "Krakow",
+      "name": "Polish Affairs"
+    }),
+    (d2:Department{
+      "address": "25 Kojima St.",
+      "city": "Atlantis",
+      "name": "Gaming"
+    }),
+    (d3:Department {
+      "address": "100 Older Ave.",
+      "city": "Washington D.C.",
+      "name": "Senility"
+    })
+
+CREATE (p1:Employee {
+      "age": "118",
+      "name": "Joe",
+      "surname": "Biden"
+    }),
+    (p2:Employee {
+      "age": "55",
+      "name": "Andrzej",
+      "surname": "Duda"
+    }),
+    (p3:Employee{
+      "age": "48",
+      "name": "Javier",
+      "surname": "Milei"
+    }),
+    (p4:Employee {
+      "age": "39",
+      "name": "Jan",
+      "surname": "Kowalski"
+    }),
+    (p5:Employee {
+      "age": "42",
+      "name": "John",
+      "surname": "Smith"
+    }),
+    (p6:Employee {
+      "age": "42",
+      "name": "Mario",
+      "surname": "Bros."
+    }),
+    (p7:Employee {
+      "age": "2000",
+      "name": "Lorem",
+      "surname": "Ipsum"
+    }),
+    (p8:Employee {
+      "age": "51",
+      "name": "Yannis",
+      "surname": "Papadopoulos"
+    }),
+    (p8:Employee {
+      "age": "33",
+      "name": "Matti",
+      "surname": "Meikalainen"
+    })
+
+MATCH (p:Employee)
+MATCH (d:Department)
+WHERE p.name = "Joe" and d.name = "Senility"
+CREATE (p)-[:MANAGES]-(d)
+
+MATCH (p:Employee)
+MATCH (d:Department)
+WHERE p.name = "Javier" and d.name = "Gaming"
+CREATE (p)-[:MANAGES]-(d)
+
+MATCH (p:Employee)
+MATCH (d:Department)
+WHERE p.name = "Andrzej" and d.name = "Polish Affairs"
+CREATE (p)-[:MANAGES]-(d)
+
+MATCH (p:Employee)
+MATCH (d:Department)
+WHERE p.name = "Lorem" and d.name = "Senility"
+CREATE (p)-[:WORKS_IN]-(d)
+
+MATCH (p:Employee)
+MATCH (d:Department)
+WHERE p.name = "Yannis" and d.name = "Senility"
+CREATE (p)-[:WORKS_IN]-(d)
+
+MATCH (p:Employee)
+MATCH (d:Department)
+WHERE p.name = "Mario" and d.name = "Gaming"
+CREATE (p)-[:WORKS_IN]-(d)
+
+MATCH (p:Employee)
+MATCH (d:Department)
+WHERE p.name = "Matti" and d.name = "Gaming"
+CREATE (p)-[:WORKS_IN]-(d)
+
+MATCH (p:Employee)
+MATCH (d:Department)
+WHERE p.name = "Jan" and d.name = "Polish Affairs"
+CREATE (p)-[:WORKS_IN]-(d)
+
+MATCH (p:Employee)
+MATCH (d:Department)
+WHERE p.name = "John" and d.name = "Polish Affairs"
+CREATE (p)-[:WORKS_IN]-(d)
